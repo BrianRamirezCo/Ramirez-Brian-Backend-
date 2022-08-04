@@ -1,5 +1,4 @@
 const { log } = require('console');
-const { writeFile } = require('fs');
 const fs = require('fs/promises')
 
 
@@ -55,7 +54,6 @@ class Contenedor{
     async getById(id){
         const prod = await this.accessDb();
         const product = prod.find(x => x.id === id)
-        console.log(product);
     }
 
     async getAll(){
@@ -65,7 +63,7 @@ class Contenedor{
 
     async deleteAll(){
         const prod = await this.accessDb();
-        let empty= prod.slice(0,prod.length);
+        let empty= prod.splice(0,prod.length);
         console.log(empty);
         
         await fs.writeFile(this.url , JSON.stringify(prod, null, 2))
@@ -78,12 +76,12 @@ class Contenedor{
 
 async function main(){
 const obtenerProductos = new Contenedor('./archivos/productos.json')
-// console.log(await obtenerProductos.save({title:"producto1",price:1500,thumbnail:'url/imagenproducto1'}))
-// console.log(await obtenerProductos.save({title:"producto2",price:1600,thumbnail:'url/imagenproducto2'}))
-// console.log(await obtenerProductos.save({title:"producto3",price:1700,thumbnail:'url/imagenproducto3'}))
+console.log(await obtenerProductos.save({title:"producto1",price:1500,thumbnail:'url/imagenproducto1'}))
+console.log(await obtenerProductos.save({title:"producto2",price:1600,thumbnail:'url/imagenproducto2'}))
+console.log(await obtenerProductos.save({title:"producto3",price:1700,thumbnail:'url/imagenproducto3'}))
 // console.log(await obtenerProductos.deleteById(2));
 // console.log(await obtenerProductos.getById(3));
 // console.log(await obtenerProductos.getAll());
-console.log(await obtenerProductos.deleteAll());
+// console.log(await obtenerProductos.deleteAll());
 }
 main();
