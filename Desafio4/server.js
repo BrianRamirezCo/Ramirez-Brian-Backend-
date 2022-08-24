@@ -14,7 +14,7 @@ app.use(express.static(__dirname + '/public'))
 
 
 /*rutas*/
-app.use('/products', routerProductos)
+app.use('/', routerProductos)
 
 /*Server*/ 
 const PORT = 8080;
