@@ -1,0 +1,25 @@
+div(class="jumbotron")    
+    h1(style="color:blue;") Ingrese datos
+    br
+    form(action="/personas" method="post")
+        div(class="form-group")
+            label(for="nombre")
+                b Nombre
+            input(id='nombre' class="form-control" type="text" name="nombre")
+
+        div(class="form-group")
+            label(for="apellido")
+                b Apellido
+            input(id='apellido' class="form-control" type="text" name="apellido")
+        
+        div(class="form-group")
+            label(for="edad")
+                b Edad
+            input(id='edad' class="form-control" type="text" name="edad")
+
+        div(class="form-group")
+            label(for="avatar")
+                b Avatar
+            input(id='avatar' class="form-control" type="text" name="avatar")
+        
+        button(class="btn btn-success") Enviar
