@@ -8,19 +8,19 @@ class Contenedor{
         async accessDb(){
             try {
                 const prod = await fs.readFile(this.url , 'utf-8')
-                return JSON.parse(prod)
+                return JSON.stringify(prod)
             } catch (error) {
                 return []
             }
         }
 
-async p(){
-    const zz = []
-    const prod = await this.accessDb()
-    const newArray = prod.map(producto => producto.title)
-    zz.push(newArray)
-    return zz;
-}
+// async p(){
+//     const zz = []
+//     const prod = await this.accessDb()
+//     const newArray = prod.map(producto => producto.title)
+//     zz.push(newArray)
+//     return zz;
+// }
 
     async b(id){
         const aa = []
@@ -43,7 +43,7 @@ async p(){
 }
 async function main(){
 const obtenerProductos = new Contenedor('productos.json')
-console.log(await obtenerProductos.p());
+// console.log(await obtenerProductos.p());
 console.log(await obtenerProductos.b(1));
 console.log(await obtenerProductos.b(2));
 console.log(await obtenerProductos.b(3));
